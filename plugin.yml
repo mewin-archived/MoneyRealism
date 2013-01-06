@@ -1,0 +1,31 @@
+name: MoneyRealism
+authors: [ mewin ]
+version: 0.1
+main: de.mewin.mr.MRPlugin
+depends: [ Vault ]
+commands:
+  moneytoitem:
+    description: transfers some of your money to an item
+    usage: /<command> [amount] (comment)
+    permission: mr.moneyitem.create
+    aliases: [ mti ]
+  bank:
+    description: gives you access to the bank commands
+    usage: /<command> [command]
+    permission: mr.bank.access
+    aliases: [ rbank, b ]
+permissions:
+  mr.moneyitem.create:
+    default: true
+  mr.moneyitem.comment:
+    default: op
+  mr.moneyitem.comment.color:
+    default: op
+    children:
+      - mr.moneyitem.comment: true
+  mr.bank.access:
+    default: true
+  mr.bank.own:
+    default: true
+    children:
+      - mr.bank.access: true
